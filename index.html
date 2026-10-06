@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Dove dormiamo a Londra?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
+<style>
+/* Layout: one readable column for phones; the two recommendations sit side by side when there is room.
+   Identity borrowed from London transport: line colours (Elizabeth line purple, DLR teal, bus red) label every journey. */
+:root {
+  --bg: #f4f5fa;
+  --surface: #ffffff;
+  --surface-2: #eceef6;
+  --ink: #161b33;
+  --ink-soft: #4a5070;
+  --line: #d6d9e8;
+  --accent: #6950a1;          /* Elizabeth line purple */
+  --accent-ink: #ffffff;
+  --accent-soft: #ece7f7;
+  --dlr: #00a4a7;
+  --bus: #dc241f;
+  --mixed: #6b7194;
+  --ok: #1d7a46;
+  --ok-soft: #e3f3ea;
+  --warn: #8a5a00;
+  --warn-soft: #fff1d1;
+  --shadow: 0 1px 2px rgba(22, 27, 51, .06), 0 6px 20px rgba(22, 27, 51, .06);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #10121b;
+    --surface: #191c29;
+    --surface-2: #222639;
+    --ink: #eceef8;
+    --ink-soft: #a8adc8;
+    --line: #2f3450;
+    --accent: #a891e6;
+    --accent-ink: #14111f;
+    --accent-soft: #2a2442;
+    --dlr: #3cc8ca;
+    --bus: #ff6b62;
+    --mixed: #9aa0c0;
+    --ok: #6fd69b;
+    --ok-soft: #173326;
+    --warn: #ffc95c;
+    --warn-soft: #3a2d10;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #10121b;
+  --surface: #191c29;
+  --surface-2: #222639;
+  --ink: #eceef8;
+  --ink-soft: #a8adc8;
+  --line: #2f3450;
+  --accent: #a891e6;
+  --accent-ink: #14111f;
+  --accent-soft: #2a2442;
+  --dlr: #3cc8ca;
+  --bus: #ff6b62;
+  --mixed: #9aa0c0;
+  --ok: #6fd69b;
+  --ok-soft: #173326;
+  --warn: #ffc95c;
+  --warn-soft: #3a2d10;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  padding-inline: 16px;
+}
+.wrap {
+  max-width: 920px;
+  margin-inline: auto;
+  padding-block: 28px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2rem, 6vw, 3.1rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.35rem, 3.6vw, 1.75rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.num { font-variant-numeric: tabular-nums; }
+.section { display: flex; flex-direction: column; gap: 18px; }
+.section-head { display: flex; flex-direction: column; gap: 6px; }
+.section-head p { color: var(--ink-soft); max-width: 62ch; }
+.eyebrow {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+/* ---------- hero ---------- */
+.hero { display: flex; flex-direction: column; gap: 14px; }
+.hero .lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 60ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.fact {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--surface); border: 1px solid var(--line);
+  padding: 5px 12px; border-radius: 999px; font-size: .92rem;
+}
+.stamp {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--warn-soft); color: var(--ink);
+  border-radius: 10px; padding: 10px 14px; font-size: .93rem; max-width: 62ch;
+}
+.stamp b { color: var(--warn); }
+
+/* ---------- line chips (London transport vernacular) ---------- */
+.line {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .8rem; font-weight: 700; line-height: 1;
+  padding: 4px 8px 4px 6px; border-radius: 999px;
+  background: var(--surface-2); color: var(--ink);
+  white-space: nowrap;
+}
+.line::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--mixed)); }
+.line.eliz { --c: var(--accent); }
+.line.dlr { --c: var(--dlr); }
+.line.bus { --c: var(--bus); }
+.line.mixed { --c: var(--mixed); }
+
+/* ---------- top picks ---------- */
+.picks { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
+.pick {
+  background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow);
+  padding: 20px; display: flex; flex-direction: column; gap: 12px;
+  border-top: 5px solid var(--accent);
+}
+.pick.alt { border-top-color: var(--dlr); }
+.pick .kind { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: var(--ink-soft); }
+.pick .price { font-family: var(--font-display); font-size: 2.3rem; font-weight: 800; line-height: 1; }
+.pick .pp { color: var(--ink-soft); font-size: .95rem; }
+.pick ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.pick li { display: flex; gap: 8px; align-items: baseline; }
+.pick .why { font-size: .95rem; color: var(--ink-soft); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 46px; padding: 10px 18px; border-radius: 10px;
+  background: var(--accent); color: var(--accent-ink);
+  font-weight: 700; text-decoration: none; font-size: 1rem;
+  border: 0; cursor: pointer; font-family: inherit;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+.pick .btn { margin-top: auto; }
+
+/* ---------- tags ---------- */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: .85rem; padding: 3px 9px; border-radius: 6px; background: var(--surface-2); }
+.tag.ok { background: var(--ok-soft); color: var(--ok); font-weight: 700; }
+.tag.warn { background: var(--warn-soft); color: var(--warn); font-weight: 700; }
+
+/* ---------- poll ---------- */
+.poll { background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); padding: 20px; display: flex; flex-direction: column; gap: 22px; }
+.poll-status { font-size: .95rem; color: var(--ink-soft); background: var(--surface-2); padding: 10px 14px; border-radius: 10px; }
+.poll-status.warn { background: var(--warn-soft); color: var(--ink); }
+.q { display: flex; flex-direction: column; gap: 10px; }
+.q h3 { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+.q h3 small { font-family: var(--font-body); font-weight: 400; font-size: .9rem; color: var(--ink-soft); }
+.opts { display: flex; flex-direction: column; gap: 8px; }
+.opt {
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center;
+  width: 100%; text-align: left; font: inherit; color: var(--ink);
+  background: var(--surface-2); border: 2px solid transparent; border-radius: 10px;
+  padding: 10px 14px; cursor: pointer; min-height: 52px;
+}
+.opt:hover { border-color: var(--line); }
+.opt[aria-pressed="true"] { border-color: var(--accent); }
+.opt[disabled] { cursor: default; }
+.opt .fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--accent-soft); transition: width .35s ease; z-index: 0; }
+.opt > :not(.fill) { position: relative; z-index: 1; }
+.opt .o-name { font-weight: 700; }
+.opt .o-sub { font-size: .85rem; color: var(--ink-soft); grid-column: 1; }
+.opt .o-count { grid-row: 1 / span 2; grid-column: 2; display: flex; align-items: center; gap: 8px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.opt .mine { font-size: .75rem; font-weight: 700; color: var(--accent-ink); background: var(--accent); border-radius: 999px; padding: 2px 8px; }
+.faces { display: flex; }
+.faces img { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--surface-2); margin-left: -6px; background: var(--surface); }
+.faces img:first-child { margin-left: 0; }
+.poll-foot { font-size: .9rem; color: var(--ink-soft); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* ---------- travel-time chart ---------- */
+.chart { background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.bars { display: flex; flex-direction: column; gap: 10px; }
+.bar-row { display: grid; grid-template-columns: minmax(110px, 30%) 1fr; gap: 12px; align-items: center; }
+.bar-row .who { font-size: .95rem; line-height: 1.25; }
+.bar-row .who small { display: block; color: var(--ink-soft); font-size: .8rem; }
+.track { position: relative; height: 28px; background: repeating-linear-gradient(to right, transparent 0, transparent calc(25% - 1px), var(--line) calc(25% - 1px), var(--line) 25%); border-radius: 6px; }
+.track .b { position: absolute; inset: 4px auto 4px 0; border-radius: 4px; background: var(--c, var(--mixed)); }
+.track .v { position: absolute; top: 50%; transform: translateY(-50%); font-weight: 700; font-size: .9rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.axis { display: grid; grid-template-columns: minmax(110px, 30%) 1fr; gap: 12px; font-size: .78rem; color: var(--ink-soft); }
+.axis .ticks { display: flex; justify-content: space-between; font-variant-numeric: tabular-nums; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px; }
+.note { font-size: .88rem; color: var(--ink-soft); }
+
+/* ---------- option cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.card {
+  background: var(--surface); border-radius: var(--r); border: 1px solid var(--line);
+  padding: 18px; display: flex; flex-direction: column; gap: 12px;
+}
+.card .top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.card .src { font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; }
+.card .where { color: var(--ink-soft); font-size: .92rem; }
+.card .money { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.card .money strong { font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; line-height: 1; }
+.card .money span { color: var(--ink-soft); font-size: .92rem; }
+.card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: .93rem; }
+.card dt { color: var(--ink-soft); }
+.card dd { margin: 0; }
+.card .btn { margin-top: auto; }
+
+.aside {
+  background: var(--surface-2); border-radius: var(--r); padding: 16px 18px;
+  display: flex; gap: 14px; align-items: flex-start; font-size: .97rem;
+}
+.aside b { font-family: var(--font-display); }
+
+/* ---------- arrival ---------- */
+.timeline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: .93rem; }
+.timeline .t { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; }
+.timeline .t b { font-variant-numeric: tabular-nums; }
+.timeline .arrow { color: var(--ink-soft); }
+.ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.way { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.way .money strong { font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; }
+.way ul { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 4px; font-size: .93rem; }
+.way .flag { align-self: flex-start; }
+
+/* ---------- checklist ---------- */
+.check { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.check li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.check .box { width: 22px; height: 22px; border: 2px solid var(--accent); border-radius: 6px; margin-top: 2px; }
+.check li p + p { color: var(--ink-soft); font-size: .92rem; margin-top: 2px; }
+
+/* ---------- links ---------- */
+.linkgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+.linkgroup { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+.linkgroup h3 { font-size: 1rem; }
+.linkgroup ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.linkgroup a { font-weight: 700; }
+.linkgroup li span { display: block; font-size: .85rem; color: var(--ink-soft); }
+
+footer { border-top: 1px solid var(--line); padding-top: 18px; color: var(--ink-soft); font-size: .9rem; display: flex; flex-direction: column; gap: 8px; }
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .bar-row, .axis { grid-template-columns: 96px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .opt .fill { transition: none; }
+}
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <div class="facts">
+      <span class="fact">📅 <span class="num">12 → 16 novembre 2026</span></span>
+      <span class="fact">🌙 4 notti</span>
+      <span class="fact">👥 5 adulti</span>
+      <span class="fact">📍 ExCeL, Royal Victoria Dock</span>
+    </div>
+    <h1>Dove dormiamo a Londra?</h1>
+    <p class="lead">Abbiamo impegni a ExCeL, 1 Western Gateway, E16 1XL. Qui ci sono le soluzioni migliori sotto i 50 € a testa a notte, tutte con cancellazione gratuita. Leggete le due proposte, poi votate nel gruppo WhatsApp.</p>
+    <p class="stamp"><span aria-hidden="true">⚠️</span><span><b>Prezzi verificati il 6 ottobre 2026.</b> Possono cambiare da un giorno all'altro. Non abbiamo ancora prenotato nulla.</span></p>
+  </header>
+
+  <section class="section" aria-labelledby="h-picks">
+    <div class="section-head">
+      <span class="eyebrow">In breve</span>
+      <h2 id="h-picks">Le due proposte migliori</h2>
+      <p>Una per ogni modo di dormire: due camere d'albergo (3 + 2), oppure un appartamento tutto per noi.</p>
+    </div>
+    <div class="picks">
+      <article class="pick">
+        <span class="kind">🛏️ Due camere · 3 + 2</span>
+        <h3>Travelodge London Woolwich</h3>
+        <div>
+          <div class="price num">854 €</div>
+          <div class="pp num">totale 4 notti · circa 43 € a testa a notte</div>
+        </div>
+        <ul>
+          <li><span class="line eliz">Elizabeth line</span><span>14 min da ExCeL, 1 fermata</span></li>
+          <li>✅ <span>Cancellazione gratuita fino alle 12:00 del 12 nov</span></li>
+          <li>🚿 <span>Bagno privato in entrambe le camere</span></li>
+        </ul>
+        <p class="why">È sulla stessa linea del treno che arriva da Stansted. Si paga alla prenotazione, ma la tariffa Flexible si rimborsa per intero.</p>
+        <a class="btn" href="https://www.travelodge.co.uk/hotels/554/London-Woolwich-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Apri su Travelodge ↗</a>
+      </article>
+      <article class="pick alt">
+        <span class="kind">🏠 Un appartamento per 5</span>
+        <h3>Appartamento 2 camere a Stratford</h3>
+        <div>
+          <div class="price num">698 €</div>
+          <div class="pp num">totale 4 notti · circa 35 € a testa a notte</div>
+        </div>
+        <ul>
+          <li><span class="line bus">Bus 241</span><span>25 min da ExCeL, diretto</span></li>
+          <li>✅ <span>Cancellazione gratuita fino al 4 nov, non si paga nulla prima del 3 nov</span></li>
+          <li>🛋️ <span>4 dormono nei letti, 1 sul divano letto</span></li>
+        </ul>
+        <p class="why">La soluzione più economica in assoluto, 111 m² con cucina. Gli host parlano italiano.</p>
+        <a class="btn" href="https://www.booking.com/hotel/gb/prime-stratford-centre-2bed-or-3bed.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=1" target="_blank" rel="noopener">Apri su Booking ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-vote" id="voto">
+    <div class="aside">
+      <span aria-hidden="true">🗳️</span>
+      <p><b id="h-vote">Votiamo nel gruppo WhatsApp.</b> Guardate le opzioni qui sotto e scegliete la vostra preferita nei due sondaggi del gruppo: dove dormiamo e come arriviamo da Stansted.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-time">
+    <div class="section-head">
+      <span class="eyebrow">Distanze</span>
+      <h2 id="h-time">Quanto ci mettiamo fino a ExCeL</h2>
+      <p>Tempo porta a porta con i mezzi pubblici, un giorno feriale alle 8:30.</p>
+    </div>
+    <div class="chart">
+      <div class="legend" aria-label="Legenda">
+        <span class="line eliz">Elizabeth line</span>
+        <span class="line dlr">DLR</span>
+        <span class="line bus">Autobus</span>
+        <span class="line mixed">Mezzi misti</span>
+      </div>
+      <div class="bars" id="bars"></div>
+      <div class="axis" aria-hidden="true"><span></span><div class="ticks"><span>0</span><span>10</span><span>20</span><span>30</span><span>40 min</span></div></div>
+      <p class="note">Fonte: TfL Journey Planner. I tempi delle case Airbnb sono stimati, perché l'indirizzo esatto si vede solo dopo la prenotazione.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-two">
+    <div class="section-head">
+      <span class="eyebrow">Opzione A</span>
+      <h2 id="h-two">Due camere, una da 3 e una da 2</h2>
+      <p>Dal più comodo al più economico. I prezzi sono il totale delle due camere per 4 notti.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="top"><h3>Travelodge London Woolwich</h3><span class="src">Travelodge</span></div>
+        <p class="where">129 Powis Street, Woolwich SE18</p>
+        <div class="money"><strong class="num">854 €</strong><span class="num">43 € a testa a notte</span></div>
+        <dl>
+          <dt>Fino a ExCeL</dt><dd><span class="line eliz">Elizabeth line</span> 14 min</dd>
+          <dt>Camere</dt><dd>Familiare: letto king + letto estraibile. Doppia: matrimoniale.</dd>
+          <dt>Colazione</dt><dd>circa 13 € a testa al giorno, a parte</dd>
+        </dl>
+        <div class="tags"><span class="tag ok">Cancellazione gratuita fino alle 12:00 del 12 nov</span><span class="tag">Bagni privati</span></div>
+        <a class="btn" href="https://www.travelodge.co.uk/hotels/554/London-Woolwich-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Apri su Travelodge ↗</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Travelodge London City Airport</h3><span class="src">Travelodge</span></div>
+        <p class="where">1 Connaught Road, Silvertown E16</p>
+        <div class="money"><strong class="num">906 €</strong><span class="num">45 € a testa a notte</span></div>
+        <dl>
+          <dt>Fino a ExCeL</dt><dd><span class="line bus">Bus 474</span> 12 min</dd>
+          <dt>Camere</dt><dd>Familiare per 3 + doppia "SuperRoom"</dd>
+          <dt>Colazione</dt><dd>circa 15 € a testa al giorno, a parte</dd>
+        </dl>
+        <div class="tags"><span class="tag ok">Cancellazione gratuita fino alle 12:00 del 12 nov</span><span class="tag warn">Restava 1 sola camera familiare</span></div>
+        <a class="btn" href="https://www.travelodge.co.uk/hotels/294/London-City-Airport-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Apri su Travelodge ↗</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>London Budget-Friendly Stay</h3><span class="src">Booking · 7,6</span></div>
+        <p class="where">Willis Road, Plaistow E15 · 276 recensioni</p>
+        <div class="money"><strong class="num">620 €</strong><span class="num">31 € a testa a notte</span></div>
+        <dl>
+          <dt>Fino a ExCeL</dt><dd><span class="line bus">Bus 241</span> 23 min</dd>
+          <dt>Camere</dt><dd>Tripla: 1 singolo + 1 matrimoniale. Doppia: matrimoniale. Cucina.</dd>
+        </dl>
+        <div class="tags"><span class="tag ok">Cancellazione gratuita fino al 4 nov</span><span class="tag warn">Bagno in comune</span></div>
+        <a class="btn" href="https://www.booking.com/hotel/gb/plaistow-budget-friendly-stay.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=2" target="_blank" rel="noopener">Apri su Booking ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-five">
+    <div class="section-head">
+      <span class="eyebrow">Opzione B</span>
+      <h2 id="h-five">Un appartamento per tutti e 5</h2>
+      <p>Più spazio e una cucina. In due casi il quinto dorme su un divano letto.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="top"><h3>Appartamento 2 camere, Stratford</h3><span class="src">Booking · 7,2</span></div>
+        <p class="where">Church Street, Stratford E15 · 59 recensioni</p>
+        <div class="money"><strong class="num">698 €</strong><span class="num">35 € a testa a notte</span></div>
+        <dl>
+          <dt>Fino a ExCeL</dt><dd><span class="line bus">Bus 241</span> 25 min</dd>
+          <dt>Letti</dt><dd>2 singoli + 1 matrimoniale + divano letto</dd>
+          <dt>Check-in</dt><dd>dalle 15:00 a mezzanotte</dd>
+        </dl>
+        <div class="tags"><span class="tag ok">Cancellazione gratuita fino al 4 nov</span><span class="tag">Prezzo con sconto Genius</span></div>
+        <a class="btn" href="https://www.booking.com/hotel/gb/prime-stratford-centre-2bed-or-3bed.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=1" target="_blank" rel="noopener">Apri su Booking ↗</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Appartamento a Poplar</h3><span class="src">Airbnb · 4,68★</span></div>
+        <p class="where">Poplar E14 · 31 recensioni</p>
+        <div class="money"><strong class="num">904 €</strong><span class="num">45 € a testa a notte</span></div>
+        <dl>
+          <dt>Fino a ExCeL</dt><dd><span class="line dlr">DLR</span> circa 24 min, diretto</dd>
+          <dt>Letti</dt><dd>super-king + king + divano letto</dd>
+        </dl>
+        <div class="tags"><span class="tag ok">Cancellazione gratuita entro l'11 nov</span></div>
+        <a class="btn" href="https://www.airbnb.it/rooms/1125289123335706542?check_in=2026-11-12&amp;check_out=2026-11-16&amp;adults=5" target="_blank" rel="noopener">Apri su Airbnb ↗</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Casa con 3 camere, Plaistow</h3><span class="src">Airbnb · nuova</span></div>
+        <p class="where">Plaistow E13 · casa con giardino</p>
+        <div class="money"><strong class="num">907 €</strong><span class="num">45 € a testa a notte</span></div>
+        <dl>
+          <dt>Fino a ExCeL</dt><dd><span class="line mixed">Metro</span> circa 22 min</dd>
+          <dt>Letti</dt><dd>king + matrimoniale + singolo: tutti in un letto vero</dd>
+        </dl>
+        <div class="tags"><span class="tag ok">Cancellazione gratuita entro il 7 nov</span><span class="tag warn">Scegliere la tariffa "Rimborsabile"</span><span class="tag warn">Ancora senza recensioni</span></div>
+        <a class="btn" href="https://www.airbnb.it/rooms/1770194264070959356?check_in=2026-11-12&amp;check_out=2026-11-16&amp;adults=5" target="_blank" rel="noopener">Apri su Airbnb ↗</a>
+      </article>
+    </div>
+    <div class="aside">
+      <span aria-hidden="true">💡</span>
+      <p><b>Perché non dormiamo proprio accanto a ExCeL?</b> Gli hotel lì costano da circa 1.570 € per 4 notti, quasi 80 € a testa a notte. Gli alloggi qui sopra stanno a 12–25 minuti e costano molto meno.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-arrive">
+    <div class="section-head">
+      <span class="eyebrow">Arrivo · giovedì 12 novembre</span>
+      <h2 id="h-arrive">Da Stansted all'alloggio</h2>
+      <p>Atterriamo alle 13:50. Tra passaporti e bagagli contiamo circa 45 minuti prima di uscire dall'aeroporto.</p>
+    </div>
+    <div class="timeline num" aria-label="Orari indicativi">
+      <span class="t">✈️ Atterraggio <b>13:50</b></span><span class="arrow">→</span>
+      <span class="t">🛂 Fuori dall'aeroporto <b>~14:35</b></span><span class="arrow">→</span>
+      <span class="t">🏨 All'alloggio <b>~16:00</b></span>
+    </div>
+    <div class="ways">
+      <article class="way">
+        <span class="tag ok flag">Più comodo</span>
+        <h3>🚐 Minivan privato</h3>
+        <div class="money"><strong class="num">118–165 €</strong> <span class="num">in totale, 24–33 € a testa</span></div>
+        <ul>
+          <li>Da prenotare prima: 8 posti, con autista che aspetta all'arrivo</li>
+          <li>Porta a porta, nessun cambio con le valigie</li>
+          <li>Dopo le 15:30 c'è traffico verso Londra est</li>
+        </ul>
+      </article>
+      <article class="way">
+        <span class="tag flag">Più prevedibile</span>
+        <h3>🚆 Treno + Elizabeth line</h3>
+        <div class="money"><strong class="num">~102 €</strong> <span class="num">in totale, ~20 € a testa</span></div>
+        <ul>
+          <li>Stansted Express fino a Liverpool Street (47 min), poi Elizabeth line fino a Custom House o Woolwich</li>
+          <li>Prezzo con lo sconto GroupSave: 1/3 in meno per gruppi da 3 a 9 adulti</li>
+          <li>Con carta contactless costa circa 29 € a testa</li>
+        </ul>
+      </article>
+      <article class="way">
+        <span class="tag flag">Più economico</span>
+        <h3>🚌 Pullman + metro</h3>
+        <div class="money"><strong class="num">~80 €</strong> <span class="num">in totale, ~16 € a testa</span></div>
+        <ul>
+          <li>National Express A9 fino a Stratford, poi metro</li>
+          <li>Il più lento: arrivo tra le 16:15 e le 16:45</li>
+          <li>Bagaglio da 20 kg incluso</li>
+        </ul>
+      </article>
+    </div>
+    <p class="note">Con il treno prendete biglietti flessibili, non le tariffe "Advance" legate a un treno preciso: se l'aereo ritarda, si perdono.</p>
+  </section>
+
+  <section class="section" aria-labelledby="h-check">
+    <div class="section-head">
+      <span class="eyebrow">Prima di partire</span>
+      <h2 id="h-check">Cose da fare</h2>
+    </div>
+    <ul class="check">
+      <li><span class="box" aria-hidden="true"></span><div><p><b>ETA per tutti e 5</b>: l'autorizzazione elettronica per entrare nel Regno Unito, circa 24 € a testa.</p><p>Solo dall'app "UK ETA" o da gov.uk: altri siti fanno pagare di più. Di solito arriva in un giorno, al massimo in 3 giorni lavorativi.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>Passaporto valido</b>.</p><p>La carta d'identità non basta più per entrare nel Regno Unito.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>Una carta contactless a testa</b> per metro, bus e treni.</p><p>Ognuno deve usare la propria carta o il proprio telefono: una carta paga per una persona sola.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>Decidere l'alloggio entro il 3 novembre</b>.</p><p>Le prime scadenze per cancellare gratis sono il 4 novembre. Prima decidiamo, più scelta resta.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>Adattatore per le prese inglesi</b> (tipo G, tre poli).</p></div></li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="h-links">
+    <div class="section-head">
+      <span class="eyebrow">Link utili</span>
+      <h2 id="h-links">Tutto quello che serve</h2>
+    </div>
+    <div class="linkgrid">
+      <div class="linkgroup">
+        <h3>🛏️ Alloggi</h3>
+        <ul>
+          <li><a href="https://www.travelodge.co.uk/hotels/554/London-Woolwich-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Travelodge Woolwich ↗</a></li>
+          <li><a href="https://www.travelodge.co.uk/hotels/294/London-City-Airport-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Travelodge City Airport ↗</a></li>
+          <li><a href="https://www.booking.com/hotel/gb/plaistow-budget-friendly-stay.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=2" target="_blank" rel="noopener">London Budget-Friendly Stay ↗</a></li>
+          <li><a href="https://www.booking.com/hotel/gb/prime-stratford-centre-2bed-or-3bed.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=1" target="_blank" rel="noopener">Appartamento Stratford ↗</a></li>
+          <li><a href="https://www.airbnb.it/rooms/1125289123335706542?check_in=2026-11-12&amp;check_out=2026-11-16&amp;adults=5" target="_blank" rel="noopener">Appartamento Poplar ↗</a></li>
+          <li><a href="https://www.airbnb.it/rooms/1770194264070959356?check_in=2026-11-12&amp;check_out=2026-11-16&amp;adults=5" target="_blank" rel="noopener">Casa Plaistow ↗</a></li>
+        </ul>
+      </div>
+      <div class="linkgroup">
+        <h3>📍 ExCeL</h3>
+        <ul>
+          <li><a href="https://www.excel.london/visitor/getting-here" target="_blank" rel="noopener">Come arrivare a ExCeL ↗</a><span>Sito ufficiale</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=ExCeL+London+1+Western+Gateway+E16+1XL" target="_blank" rel="noopener">ExCeL su Google Maps ↗</a><span>1 Western Gateway, E16 1XL</span></li>
+        </ul>
+      </div>
+      <div class="linkgroup">
+        <h3>🚇 Muoversi a Londra</h3>
+        <ul>
+          <li><a href="https://tfl.gov.uk/plan-a-journey/" target="_blank" rel="noopener">Calcola un percorso (TfL) ↗</a><span>Il pianificatore ufficiale dei trasporti</span></li>
+          <li><a href="https://tfl.gov.uk/fares/how-to-pay-and-where-to-buy-tickets-and-oyster/pay-as-you-go/contactless-and-mobile-pay-as-you-go" target="_blank" rel="noopener">Pagare con il contactless ↗</a><span>Come funzionano tariffe e tetto giornaliero</span></li>
+        </ul>
+      </div>
+      <div class="linkgroup">
+        <h3>✈️ Da Stansted</h3>
+        <ul>
+          <li><a href="https://www.stanstedexpress.com/" target="_blank" rel="noopener">Stansted Express ↗</a><span>Treno per Liverpool Street</span></li>
+          <li><a href="https://www.greateranglia.co.uk/tickets-fares/discounts/groupsave" target="_blank" rel="noopener">Sconto GroupSave ↗</a><span>1/3 in meno per 3–9 adulti</span></li>
+          <li><a href="https://www.nationalexpress.com/en/destinations/london-stratford/stansted-to-london-stratford" target="_blank" rel="noopener">Pullman per Stratford ↗</a><span>National Express</span></li>
+          <li><a href="https://www.stanstedairport.com/getting-to-and-from/stansted-to-london/" target="_blank" rel="noopener">Tutte le opzioni dall'aeroporto ↗</a><span>Sito ufficiale di Stansted</span></li>
+        </ul>
+      </div>
+      <div class="linkgroup">
+        <h3>🛂 Documenti</h3>
+        <ul>
+          <li><a href="https://www.gov.uk/eta" target="_blank" rel="noopener">Richiedere l'ETA ↗</a><span>Solo dal sito ufficiale gov.uk o dall'app UK ETA</span></li>
+        </ul>
+      </div>
+      <div class="linkgroup">
+        <h3>🌦️ Meteo</h3>
+        <ul>
+          <li><a href="https://weather.metoffice.gov.uk/forecast/gcpvj0v07" target="_blank" rel="noopener">Previsioni per Londra ↗</a><span>Met Office, il servizio meteo britannico</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Prezzi per 5 adulti dal 12 al 16 novembre 2026 (4 notti), verificati il 6 ottobre 2026 sui siti indicati. I prezzi in sterline sono convertiti in euro al cambio di 1 € = 0,849 £. Travelodge, trasporti, colazioni ed ETA si pagano in sterline: con la carta potete pagare un po' di più. I prezzi dei trasporti sono indicativi.</p>
+    <p>Disponibilità e prezzi cambiano ogni giorno. Prima di prenotare controllate sempre il totale e la scadenza della cancellazione nella pagina di pagamento.</p>
+  </footer>
+</main>
+
+<script>
+(() => {
+  const TIMES = [
+    { who: "Travelodge City Airport", tag: "2 camere", min: 12, line: "bus", label: "12 min" },
+    { who: "Travelodge Woolwich", tag: "2 camere", min: 14, line: "eliz", label: "14 min" },
+    { who: "Casa Plaistow", tag: "per 5", min: 22, line: "mixed", label: "~22 min" },
+    { who: "Budget-Friendly Stay", tag: "2 camere", min: 23, line: "bus", label: "23 min" },
+    { who: "Appartamento Poplar", tag: "per 5", min: 24, line: "dlr", label: "~24 min" },
+    { who: "Appartamento Stratford", tag: "per 5", min: 25, line: "bus", label: "25 min" }
+  ];
+
+  // ---- travel-time chart (static, drawn to a 0–40 min scale) ----
+  const bars = document.getElementById("bars");
+  const colorVar = { eliz: "var(--accent)", dlr: "var(--dlr)", bus: "var(--bus)", mixed: "var(--mixed)" };
+  TIMES.forEach(t => {
+    const row = document.createElement("div");
+    row.className = "bar-row";
+    const pct = Math.min(100, (t.min / 40) * 100);
+    row.innerHTML =
+      '<div class="who"></div>' +
+      '<div class="track" role="img"><div class="b"></div><span class="v"></span></div>';
+    const who = row.querySelector(".who");
+    who.textContent = t.who;
+    const small = document.createElement("small");
+    small.textContent = t.tag;
+    who.appendChild(small);
+    const track = row.querySelector(".track");
+    track.setAttribute("aria-label", t.who + ": " + t.label);
+    const b = row.querySelector(".b");
+    b.style.width = pct + "%";
+    b.style.setProperty("--c", colorVar[t.line]);
+    const v = row.querySelector(".v");
+    v.textContent = t.label;
+    v.style.left = "calc(" + pct + "% + 8px)";
+    bars.appendChild(row);
+  });
+})();
+</script>
+</body>
+</html>
