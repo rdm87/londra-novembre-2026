@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Dove dormiamo a Londra?</title>
+<title>Londra, 12-16 novembre</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
@@ -284,6 +284,28 @@ footer { border-top: 1px solid var(--line); padding-top: 18px; color: var(--ink-
 }
 [hidden] { display: none !important; }
 img { max-width: 100%; }
+
+/* ---------- booked home + routes ---------- */
+.home { background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); padding: 20px; display: flex; flex-direction: column; gap: 14px; border-top: 5px solid var(--dlr); }
+.home .addr { font-family: var(--font-display); font-size: clamp(1.4rem, 4.5vw, 1.9rem); font-weight: 800; line-height: 1.1; }
+.home dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; font-size: .97rem; }
+.home dt { color: var(--ink-soft); }
+.home dd { margin: 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.route { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+.route li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; position: relative; padding-bottom: 14px; }
+.route li:last-child { padding-bottom: 0; }
+.route li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--c, var(--mixed)); background: var(--surface); margin-top: 5px; justify-self: center; z-index: 1; }
+.route li::after { content: ""; position: absolute; left: 10px; top: 20px; bottom: 0; width: 2px; background: var(--line); }
+.route li:last-child::after { display: none; }
+.route li.eliz { --c: var(--accent); }
+.route li.dlr { --c: var(--dlr); }
+.route li.bus { --c: var(--bus); }
+.route .when { font-size: .85rem; color: var(--ink-soft); }
+.route-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.route-card .head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.route-card .head strong { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; }
 </style>
 </head>
 <body>
@@ -296,268 +318,199 @@ img { max-width: 100%; }
       <span class="fact">👥 5 adulti</span>
       <span class="fact">📍 ExCeL, Royal Victoria Dock</span>
     </div>
-    <h1>Dove dormiamo a Londra?</h1>
-    <p class="lead">Abbiamo impegni a ExCeL, 1 Western Gateway, E16 1XL. Qui ci sono le soluzioni migliori sotto i 50 € a testa a notte, tutte con cancellazione gratuita. Leggete le due proposte, poi votate nel gruppo WhatsApp.</p>
-    <p class="stamp"><span aria-hidden="true">⚠️</span><span><b>Prezzi verificati il 6 ottobre 2026.</b> Possono cambiare da un giorno all'altro. Non abbiamo ancora prenotato nulla.</span></p>
+    <h1>Londra, 12–16 novembre</h1>
+    <p class="lead">Abbiamo prenotato un appartamento a Stratford, a 25 minuti di autobus da ExCeL. Qui trovate l'indirizzo, gli orari e come muoversi ogni giorno.</p>
+    <p class="stamp"><span aria-hidden="true">✅</span><span><b>Prenotato su Booking.</b> Cancellazione gratuita fino al 4 novembre alle 23:59. Info verificate a ottobre 2026.</span></p>
   </header>
 
-  <section class="section" aria-labelledby="h-picks">
+  <section class="section" aria-labelledby="h-home" id="casa">
     <div class="section-head">
-      <span class="eyebrow">In breve</span>
-      <h2 id="h-picks">Le due proposte migliori</h2>
-      <p>Una per ogni modo di dormire: due camere d'albergo (3 + 2), oppure un appartamento tutto per noi.</p>
+      <span class="eyebrow">Dove dormiamo</span>
+      <h2 id="h-home">L'appartamento</h2>
     </div>
-    <div class="picks">
-      <article class="pick">
-        <span class="kind">🛏️ Due camere · 3 + 2</span>
-        <h3>Travelodge London Woolwich</h3>
-        <div>
-          <div class="price num">854 €</div>
-          <div class="pp num">totale 4 notti · circa 43 € a testa a notte</div>
-        </div>
-        <ul>
-          <li><span class="line eliz">Elizabeth line</span><span>14 min da ExCeL, 1 fermata</span></li>
-          <li>✅ <span>Cancellazione gratuita fino alle 12:00 del 12 nov</span></li>
-          <li>🚿 <span>Bagno privato in entrambe le camere</span></li>
-        </ul>
-        <p class="why">È sulla stessa linea del treno che arriva da Stansted. Si paga alla prenotazione, ma la tariffa Flexible si rimborsa per intero.</p>
-        <a class="btn" href="https://www.travelodge.co.uk/hotels/554/London-Woolwich-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Apri su Travelodge ↗</a>
-      </article>
-      <article class="pick alt">
-        <span class="kind">🏠 Un appartamento per 5</span>
-        <h3>Appartamento 2 camere a Stratford</h3>
-        <div>
-          <div class="price num">698 €</div>
-          <div class="pp num">totale 4 notti · circa 35 € a testa a notte</div>
-        </div>
-        <ul>
-          <li><span class="line bus">Bus 241</span><span>25 min da ExCeL, diretto</span></li>
-          <li>✅ <span>Cancellazione gratuita fino al 4 nov, non si paga nulla prima del 3 nov</span></li>
-          <li>🛋️ <span>4 dormono nei letti, 1 sul divano letto</span></li>
-        </ul>
-        <p class="why">La soluzione più economica in assoluto, 111 m² con cucina. Gli host parlano italiano.</p>
-        <a class="btn" href="https://www.booking.com/hotel/gb/prime-stratford-centre-2bed-or-3bed.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=1" target="_blank" rel="noopener">Apri su Booking ↗</a>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="h-vote" id="voto">
-    <div class="aside">
-      <span aria-hidden="true">🗳️</span>
-      <p><b id="h-vote">Votiamo nel gruppo WhatsApp.</b> Guardate le opzioni qui sotto e scegliete la vostra preferita nei due sondaggi del gruppo: dove dormiamo e come arriviamo da Stansted.</p>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="h-time">
-    <div class="section-head">
-      <span class="eyebrow">Distanze</span>
-      <h2 id="h-time">Quanto ci mettiamo fino a ExCeL</h2>
-      <p>Tempo porta a porta con i mezzi pubblici, un giorno feriale alle 8:30.</p>
-    </div>
-    <div class="chart">
-      <div class="legend" aria-label="Legenda">
-        <span class="line eliz">Elizabeth line</span>
-        <span class="line dlr">DLR</span>
-        <span class="line bus">Autobus</span>
-        <span class="line mixed">Mezzi misti</span>
+    <article class="home">
+      <div>
+        <p class="addr">Church Street, Newham<br>London E15 3HU</p>
+        <p class="note" style="margin-top: 6px">Zona West Ham / Stratford. Su Booking si chiama "Spacious 2 Bed Apartment, 8min to Stratford Station".</p>
       </div>
-      <div class="bars" id="bars"></div>
-      <div class="axis" aria-hidden="true"><span></span><div class="ticks"><span>0</span><span>10</span><span>20</span><span>30</span><span>40 min</span></div></div>
-      <p class="note">Fonte: TfL Journey Planner. I tempi delle case Airbnb sono stimati, perché l'indirizzo esatto si vede solo dopo la prenotazione.</p>
-    </div>
+      <dl>
+        <dt>Check-in</dt><dd><b>Giovedì 12</b>, dalle 15:00 a mezzanotte. Le chiavi sono in una <b>cassetta di sicurezza</b> all'ingresso: istruzioni e codice arrivano dall'host.</dd>
+        <dt>Check-out</dt><dd><b>Lunedì 16</b>, tra le 8:00 e le 11:00</dd>
+        <dt>Letti</dt><dd>Camera 1: 2 letti singoli · Camera 2: letto matrimoniale · Soggiorno: 2 divani letto (uno è per il quinto)</dd>
+        <dt>In casa</dt><dd>111 m², cucina attrezzata, lavatrice, 1 bagno, Wi-Fi</dd>
+        <dt>Costo</dt><dd class="num"><b>701 €</b> in totale, circa 35 € a testa a notte</dd>
+        <dt>Fermate vicine</dt><dd><span class="line bus">Church Street</span> bus 241, 262, 276 e 473, a 1 minuto · <span class="line dlr">Abbey Road</span> DLR a 600 m · <span class="line dlr">Stratford High Street</span> DLR a 850 m</dd>
+      </dl>
+      <div class="actions">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Church+Street+London+E15+3HU" target="_blank" rel="noopener">Apri in Google Maps ↗</a>
+        <a class="btn ghost" href="https://www.booking.com/hotel/gb/prime-stratford-centre-2bed-or-3bed.it.html" target="_blank" rel="noopener">Pagina su Booking ↗</a>
+      </div>
+    </article>
   </section>
 
-  <section class="section" aria-labelledby="h-two">
+  <section class="section" aria-labelledby="h-excel" id="excel">
     <div class="section-head">
-      <span class="eyebrow">Opzione A</span>
-      <h2 id="h-two">Due camere, una da 3 e una da 2</h2>
-      <p>Dal più comodo al più economico. I prezzi sono il totale delle due camere per 4 notti.</p>
+      <span class="eyebrow">Ogni giorno</span>
+      <h2 id="h-excel">Casa ↔ ExCeL</h2>
+      <p>Circa 3,5 km. Il bus 241 parte dalla fermata sotto casa e arriva a Custom House, l'ingresso ovest di ExCeL. Orari calcolati con TfL Journey Planner per un giorno feriale.</p>
     </div>
-    <div class="cards">
-      <article class="card">
-        <div class="top"><h3>Travelodge London Woolwich</h3><span class="src">Travelodge</span></div>
-        <p class="where">129 Powis Street, Woolwich SE18</p>
-        <div class="money"><strong class="num">854 €</strong><span class="num">43 € a testa a notte</span></div>
-        <dl>
-          <dt>Fino a ExCeL</dt><dd><span class="line eliz">Elizabeth line</span> 14 min</dd>
-          <dt>Camere</dt><dd>Familiare: letto king + letto estraibile. Doppia: matrimoniale.</dd>
-          <dt>Colazione</dt><dd>circa 13 € a testa al giorno, a parte</dd>
-        </dl>
-        <div class="tags"><span class="tag ok">Cancellazione gratuita fino alle 12:00 del 12 nov</span><span class="tag">Bagni privati</span></div>
-        <a class="btn" href="https://www.travelodge.co.uk/hotels/554/London-Woolwich-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Apri su Travelodge ↗</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Travelodge London City Airport</h3><span class="src">Travelodge</span></div>
-        <p class="where">1 Connaught Road, Silvertown E16</p>
-        <div class="money"><strong class="num">906 €</strong><span class="num">45 € a testa a notte</span></div>
-        <dl>
-          <dt>Fino a ExCeL</dt><dd><span class="line bus">Bus 474</span> 12 min</dd>
-          <dt>Camere</dt><dd>Familiare per 3 + doppia "SuperRoom"</dd>
-          <dt>Colazione</dt><dd>circa 15 € a testa al giorno, a parte</dd>
-        </dl>
-        <div class="tags"><span class="tag ok">Cancellazione gratuita fino alle 12:00 del 12 nov</span><span class="tag warn">Restava 1 sola camera familiare</span></div>
-        <a class="btn" href="https://www.travelodge.co.uk/hotels/294/London-City-Airport-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Apri su Travelodge ↗</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>London Budget-Friendly Stay</h3><span class="src">Booking · 7,6</span></div>
-        <p class="where">Willis Road, Plaistow E15 · 276 recensioni</p>
-        <div class="money"><strong class="num">620 €</strong><span class="num">31 € a testa a notte</span></div>
-        <dl>
-          <dt>Fino a ExCeL</dt><dd><span class="line bus">Bus 241</span> 23 min</dd>
-          <dt>Camere</dt><dd>Tripla: 1 singolo + 1 matrimoniale. Doppia: matrimoniale. Cucina.</dd>
-        </dl>
-        <div class="tags"><span class="tag ok">Cancellazione gratuita fino al 4 nov</span><span class="tag warn">Bagno in comune</span></div>
-        <a class="btn" href="https://www.booking.com/hotel/gb/plaistow-budget-friendly-stay.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=2" target="_blank" rel="noopener">Apri su Booking ↗</a>
-      </article>
+    <div class="two">
+      <div class="route-card">
+        <div class="head"><h3>Andata, la mattina</h3><strong class="num">~25 min</strong></div>
+        <ol class="route">
+          <li><span>A piedi fino alla fermata <b>Church Street</b> <span class="when">1 min</span></span></li>
+          <li class="bus"><span><span class="line bus">Bus 241</span> direzione <b>Royal Wharf / Silvertown</b>, fino a <b>Leslie Road / Custom House Station</b> <span class="when">18 min</span></span></li>
+          <li><span>A piedi fino a ExCeL, 1 Western Gateway <span class="when">6 min</span></span></li>
+        </ol>
+        <p class="note">Alternativa: <span class="line bus">Bus 473</span> fino a Prince Regent, circa 32 minuti in tutto.</p>
+      </div>
+      <div class="route-card">
+        <div class="head"><h3>Ritorno, la sera</h3><strong class="num">~29 min</strong></div>
+        <ol class="route">
+          <li><span>A piedi da ExCeL fino a <b>Leslie Road / Custom House Station</b> <span class="when">8 min</span></span></li>
+          <li class="bus"><span><span class="line bus">Bus 241</span> direzione <b>Here East / Stratford</b>, fino a <b>Church Street</b> <span class="when">19 min</span></span></li>
+          <li><span>A piedi fino a casa <span class="when">2 min</span></span></li>
+        </ol>
+        <p class="note">Il bus costa <b>£1,75</b> a corsa con la carta contactless. Entro un'ora, gli altri bus sono gratis.</p>
+      </div>
     </div>
+    <a class="btn ghost" style="align-self: flex-start" href="https://www.google.com/maps/dir/?api=1&amp;origin=Church+Street+London+E15+3HU&amp;destination=ExCeL+London+E16+1XL&amp;travelmode=transit" target="_blank" rel="noopener">Percorso in Google Maps ↗</a>
   </section>
 
-  <section class="section" aria-labelledby="h-five">
+  <section class="section" aria-labelledby="h-arrive" id="arrivo">
     <div class="section-head">
-      <span class="eyebrow">Opzione B</span>
-      <h2 id="h-five">Un appartamento per tutti e 5</h2>
-      <p>Più spazio e una cucina. In due casi il quinto dorme su un divano letto.</p>
-    </div>
-    <div class="cards">
-      <article class="card">
-        <div class="top"><h3>Appartamento 2 camere, Stratford</h3><span class="src">Booking · 7,2</span></div>
-        <p class="where">Church Street, Stratford E15 · 59 recensioni</p>
-        <div class="money"><strong class="num">698 €</strong><span class="num">35 € a testa a notte</span></div>
-        <dl>
-          <dt>Fino a ExCeL</dt><dd><span class="line bus">Bus 241</span> 25 min</dd>
-          <dt>Letti</dt><dd>2 singoli + 1 matrimoniale + divano letto</dd>
-          <dt>Check-in</dt><dd>dalle 15:00 a mezzanotte</dd>
-        </dl>
-        <div class="tags"><span class="tag ok">Cancellazione gratuita fino al 4 nov</span><span class="tag">Prezzo con sconto Genius</span></div>
-        <a class="btn" href="https://www.booking.com/hotel/gb/prime-stratford-centre-2bed-or-3bed.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=1" target="_blank" rel="noopener">Apri su Booking ↗</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Appartamento a Poplar</h3><span class="src">Airbnb · 4,68★</span></div>
-        <p class="where">Poplar E14 · 31 recensioni</p>
-        <div class="money"><strong class="num">904 €</strong><span class="num">45 € a testa a notte</span></div>
-        <dl>
-          <dt>Fino a ExCeL</dt><dd><span class="line dlr">DLR</span> circa 24 min, diretto</dd>
-          <dt>Letti</dt><dd>super-king + king + divano letto</dd>
-        </dl>
-        <div class="tags"><span class="tag ok">Cancellazione gratuita entro l'11 nov</span></div>
-        <a class="btn" href="https://www.airbnb.it/rooms/1125289123335706542?check_in=2026-11-12&amp;check_out=2026-11-16&amp;adults=5" target="_blank" rel="noopener">Apri su Airbnb ↗</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Casa con 3 camere, Plaistow</h3><span class="src">Airbnb · nuova</span></div>
-        <p class="where">Plaistow E13 · casa con giardino</p>
-        <div class="money"><strong class="num">907 €</strong><span class="num">45 € a testa a notte</span></div>
-        <dl>
-          <dt>Fino a ExCeL</dt><dd><span class="line mixed">Metro</span> circa 22 min</dd>
-          <dt>Letti</dt><dd>king + matrimoniale + singolo: tutti in un letto vero</dd>
-        </dl>
-        <div class="tags"><span class="tag ok">Cancellazione gratuita entro il 7 nov</span><span class="tag warn">Scegliere la tariffa "Rimborsabile"</span><span class="tag warn">Ancora senza recensioni</span></div>
-        <a class="btn" href="https://www.airbnb.it/rooms/1770194264070959356?check_in=2026-11-12&amp;check_out=2026-11-16&amp;adults=5" target="_blank" rel="noopener">Apri su Airbnb ↗</a>
-      </article>
-    </div>
-    <div class="aside">
-      <span aria-hidden="true">💡</span>
-      <p><b>Perché non dormiamo proprio accanto a ExCeL?</b> Gli hotel lì costano da circa 1.570 € per 4 notti, quasi 80 € a testa a notte. Gli alloggi qui sopra stanno a 12–25 minuti e costano molto meno.</p>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="h-arrive">
-    <div class="section-head">
-      <span class="eyebrow">Arrivo · giovedì 12 novembre</span>
-      <h2 id="h-arrive">Da Stansted all'alloggio</h2>
-      <p>Atterriamo alle 13:50. Tra passaporti e bagagli contiamo circa 45 minuti prima di uscire dall'aeroporto.</p>
+      <span class="eyebrow">Giovedì 12 novembre</span>
+      <h2 id="h-arrive">Da Stansted a casa</h2>
+      <p>Atterriamo alle 13:50. Tra passaporti e bagagli contiamo circa 45 minuti prima di uscire dall'aeroporto. Il check-in apre alle 15:00, quindi abbiamo tempo.</p>
     </div>
     <div class="timeline num" aria-label="Orari indicativi">
       <span class="t">✈️ Atterraggio <b>13:50</b></span><span class="arrow">→</span>
-      <span class="t">🛂 Fuori dall'aeroporto <b>~14:35</b></span><span class="arrow">→</span>
-      <span class="t">🏨 All'alloggio <b>~16:00</b></span>
+      <span class="t">🛂 Fuori <b>~14:35</b></span><span class="arrow">→</span>
+      <span class="t">🚌 Pullman <b>~15:00</b></span><span class="arrow">→</span>
+      <span class="t">🏠 A casa <b>~16:00</b></span>
     </div>
     <div class="ways">
       <article class="way">
-        <span class="tag ok flag">Più comodo</span>
+        <span class="tag ok flag">Consigliato</span>
+        <h3>🚌 Pullman A9 + bus 241</h3>
+        <div class="money"><strong class="num">~77 €</strong> <span class="num">in totale, ~16 € a testa</span></div>
+        <ol class="route">
+          <li><span>Pullman <b>National Express A9</b> dalla stazione dei pullman di Stansted a <b>Stratford City Bus Station</b> <span class="when">45 min, ogni 20 min circa</span></span></li>
+          <li class="bus"><span><span class="line bus">Bus 241</span> direzione Royal Wharf, da Stratford City Bus Station a <b>Church Street</b> <span class="when">11 min</span></span></li>
+          <li><span>A piedi fino a casa <span class="when">1 min</span></span></li>
+        </ol>
+        <p class="note">Il pullman arriva a Stratford, a 2 km da casa: è il modo più diretto. Bagaglio da 20 kg incluso. Comprate i biglietti online: per gruppi di 4 o più persone c'è uno sconto.</p>
+      </article>
+      <article class="way">
+        <span class="tag flag">Più comodo</span>
         <h3>🚐 Minivan privato</h3>
         <div class="money"><strong class="num">118–165 €</strong> <span class="num">in totale, 24–33 € a testa</span></div>
         <ul>
           <li>Da prenotare prima: 8 posti, con autista che aspetta all'arrivo</li>
-          <li>Porta a porta, nessun cambio con le valigie</li>
+          <li>Porta a porta fino a Church Street, circa 1 ora di strada</li>
           <li>Dopo le 15:30 c'è traffico verso Londra est</li>
         </ul>
       </article>
       <article class="way">
-        <span class="tag flag">Più prevedibile</span>
-        <h3>🚆 Treno + Elizabeth line</h3>
-        <div class="money"><strong class="num">~102 €</strong> <span class="num">in totale, ~20 € a testa</span></div>
+        <span class="tag flag">In treno</span>
+        <h3>🚆 Treno con cambio a Tottenham Hale</h3>
+        <div class="money"><strong class="num">~£21</strong> <span class="num">a testa, prezzo pieno</span></div>
         <ul>
-          <li>Stansted Express fino a Liverpool Street (47 min), poi Elizabeth line fino a Custom House o Woolwich</li>
-          <li>Prezzo con lo sconto GroupSave: 1/3 in meno per gruppi da 3 a 9 adulti</li>
-          <li>Con carta contactless costa circa 29 € a testa</li>
-        </ul>
-      </article>
-      <article class="way">
-        <span class="tag flag">Più economico</span>
-        <h3>🚌 Pullman + metro</h3>
-        <div class="money"><strong class="num">~80 €</strong> <span class="num">in totale, ~16 € a testa</span></div>
-        <ul>
-          <li>National Express A9 fino a Stratford, poi metro</li>
-          <li>Il più lento: arrivo tra le 16:15 e le 16:45</li>
-          <li>Bagaglio da 20 kg incluso</li>
+          <li>Treno Greater Anglia da Stansted a Tottenham Hale, poi treno per Stratford</li>
+          <li>Poi bus 262 o 241 fino a Church Street: circa 1 ora e 20 in tutto</li>
+          <li>Con lo sconto GroupSave (gruppi da 3 a 9 adulti) si risparmia un terzo sui biglietti Off-Peak</li>
         </ul>
       </article>
     </div>
-    <p class="note">Con il treno prendete biglietti flessibili, non le tariffe "Advance" legate a un treno preciso: se l'aereo ritarda, si perdono.</p>
   </section>
 
-  <section class="section" aria-labelledby="h-check">
+  <section class="section" aria-labelledby="h-city" id="centro">
+    <div class="section-head">
+      <span class="eyebrow">Tempo libero</span>
+      <h2 id="h-city">Verso il centro di Londra</h2>
+      <p>Da casa a Trafalgar Square ci vogliono circa 45 minuti, con tre strade possibili.</p>
+    </div>
+    <div class="two">
+      <div class="route-card">
+        <div class="head"><h3>Via West Ham</h3><strong class="num">~46 min</strong></div>
+        <ol class="route">
+          <li class="bus"><span><span class="line bus">Bus 276</span> da Church Street a <b>West Ham</b> <span class="when">6 min</span></span></li>
+          <li><span>Metro <b>Jubilee line</b> fino a Westminster, London Bridge o Waterloo <span class="when">~16 min</span></span></li>
+        </ol>
+      </div>
+      <div class="route-card">
+        <div class="head"><h3>Via Stratford</h3><strong class="num">~48 min</strong></div>
+        <ol class="route">
+          <li class="bus"><span><span class="line bus">Bus 262</span> da Church Street a <b>Stratford</b> <span class="when">5 min</span></span></li>
+          <li class="eliz"><span><span class="line eliz">Elizabeth line</span> fino a Liverpool Street, Tottenham Court Road o Bond Street <span class="when">~14 min</span></span></li>
+        </ol>
+        <p class="note">A Stratford c'è anche Westfield, il grande centro commerciale.</p>
+      </div>
+    </div>
+    <p class="note">Con la carta contactless si paga a ogni tratta, ma c'è un tetto massimo giornaliero: oltre una certa cifra non si paga più. Ognuno deve usare la propria carta.</p>
+  </section>
+
+  <section class="section" aria-labelledby="h-leave" id="partenza">
+    <div class="section-head">
+      <span class="eyebrow">Lunedì 16 novembre</span>
+      <h2 id="h-leave">Il giorno della partenza</h2>
+    </div>
+    <div class="aside">
+      <span aria-hidden="true">🧳</span>
+      <p><b>Check-out entro le 11:00.</b> Per tornare a Stansted vale lo stesso percorso al contrario: bus 241 da Church Street a Stratford City, poi pullman A9. Calcolate circa 1 ora e mezza fino all'aeroporto, più il tempo per i controlli.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-check" id="checklist">
     <div class="section-head">
       <span class="eyebrow">Prima di partire</span>
       <h2 id="h-check">Cose da fare</h2>
     </div>
     <ul class="check">
-      <li><span class="box" aria-hidden="true"></span><div><p><b>ETA per tutti e 5</b>: l'autorizzazione elettronica per entrare nel Regno Unito, circa 24 € a testa.</p><p>Solo dall'app "UK ETA" o da gov.uk: altri siti fanno pagare di più. Di solito arriva in un giorno, al massimo in 3 giorni lavorativi.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>ETA per tutti e 5</b>: l'autorizzazione elettronica per entrare nel Regno Unito, circa 24 € a testa.</p><p>Solo dall'app "UK ETA" o da gov.uk: altri siti fanno pagare di più. Di solito arriva in un giorno.</p></div></li>
       <li><span class="box" aria-hidden="true"></span><div><p><b>Passaporto valido</b>.</p><p>La carta d'identità non basta più per entrare nel Regno Unito.</p></div></li>
-      <li><span class="box" aria-hidden="true"></span><div><p><b>Una carta contactless a testa</b> per metro, bus e treni.</p><p>Ognuno deve usare la propria carta o il proprio telefono: una carta paga per una persona sola.</p></div></li>
-      <li><span class="box" aria-hidden="true"></span><div><p><b>Decidere l'alloggio entro il 3 novembre</b>.</p><p>Le prime scadenze per cancellare gratis sono il 4 novembre. Prima decidiamo, più scelta resta.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>Comunicare all'host l'orario di arrivo</b>, verso le 16:00 di giovedì.</p><p>Booking lo chiede in anticipo. Le istruzioni per la cassetta delle chiavi arrivano dall'host.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>Comprare il pullman A9</b> Stansted → Stratford per tutti e 5.</p><p>Online sul sito National Express, con lo sconto gruppi.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>Decidere chi dorme dove</b>: 2 singoli, 1 matrimoniale e 1 divano letto.</p></div></li>
+      <li><span class="box" aria-hidden="true"></span><div><p><b>Una carta contactless a testa</b> per bus, metro e treni.</p><p>Ognuno deve usare la propria carta o il proprio telefono.</p></div></li>
       <li><span class="box" aria-hidden="true"></span><div><p><b>Adattatore per le prese inglesi</b> (tipo G, tre poli).</p></div></li>
     </ul>
   </section>
 
-  <section class="section" aria-labelledby="h-links">
+  <section class="section" aria-labelledby="h-links" id="link">
     <div class="section-head">
       <span class="eyebrow">Link utili</span>
       <h2 id="h-links">Tutto quello che serve</h2>
     </div>
     <div class="linkgrid">
       <div class="linkgroup">
-        <h3>🛏️ Alloggi</h3>
+        <h3>🏠 Casa</h3>
         <ul>
-          <li><a href="https://www.travelodge.co.uk/hotels/554/London-Woolwich-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Travelodge Woolwich ↗</a></li>
-          <li><a href="https://www.travelodge.co.uk/hotels/294/London-City-Airport-hotel?checkIn=12/11/2026&amp;checkOut=16/11/2026&amp;rooms[0][adults]=3&amp;rooms[0][children]=0&amp;rooms[1][adults]=2&amp;rooms[1][children]=0" target="_blank" rel="noopener">Travelodge City Airport ↗</a></li>
-          <li><a href="https://www.booking.com/hotel/gb/plaistow-budget-friendly-stay.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=2" target="_blank" rel="noopener">London Budget-Friendly Stay ↗</a></li>
-          <li><a href="https://www.booking.com/hotel/gb/prime-stratford-centre-2bed-or-3bed.it.html?checkin=2026-11-12&amp;checkout=2026-11-16&amp;group_adults=5&amp;group_children=0&amp;no_rooms=1" target="_blank" rel="noopener">Appartamento Stratford ↗</a></li>
-          <li><a href="https://www.airbnb.it/rooms/1125289123335706542?check_in=2026-11-12&amp;check_out=2026-11-16&amp;adults=5" target="_blank" rel="noopener">Appartamento Poplar ↗</a></li>
-          <li><a href="https://www.airbnb.it/rooms/1770194264070959356?check_in=2026-11-12&amp;check_out=2026-11-16&amp;adults=5" target="_blank" rel="noopener">Casa Plaistow ↗</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Church+Street+London+E15+3HU" target="_blank" rel="noopener">Church Street, E15 3HU ↗</a><span>Google Maps</span></li>
+          <li><a href="https://www.booking.com/hotel/gb/prime-stratford-centre-2bed-or-3bed.it.html" target="_blank" rel="noopener">L'appartamento su Booking ↗</a></li>
         </ul>
       </div>
       <div class="linkgroup">
         <h3>📍 ExCeL</h3>
         <ul>
           <li><a href="https://www.excel.london/visitor/getting-here" target="_blank" rel="noopener">Come arrivare a ExCeL ↗</a><span>Sito ufficiale</span></li>
-          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=ExCeL+London+1+Western+Gateway+E16+1XL" target="_blank" rel="noopener">ExCeL su Google Maps ↗</a><span>1 Western Gateway, E16 1XL</span></li>
+          <li><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Church+Street+London+E15+3HU&amp;destination=ExCeL+London+E16+1XL&amp;travelmode=transit" target="_blank" rel="noopener">Percorso casa → ExCeL ↗</a><span>Google Maps</span></li>
+        </ul>
+      </div>
+      <div class="linkgroup">
+        <h3>✈️ Da Stansted</h3>
+        <ul>
+          <li><a href="https://www.nationalexpress.com/en/destinations/london-stratford/stansted-to-london-stratford" target="_blank" rel="noopener">Pullman A9 per Stratford ↗</a><span>National Express</span></li>
+          <li><a href="https://www.stanstedairport.com/getting-to-and-from/stansted-to-london/" target="_blank" rel="noopener">Tutte le opzioni dall'aeroporto ↗</a><span>Sito ufficiale di Stansted</span></li>
+          <li><a href="https://www.greateranglia.co.uk/tickets-fares/discounts/groupsave" target="_blank" rel="noopener">Sconto GroupSave ↗</a><span>Per il treno, 3–9 adulti</span></li>
         </ul>
       </div>
       <div class="linkgroup">
         <h3>🚇 Muoversi a Londra</h3>
         <ul>
           <li><a href="https://tfl.gov.uk/plan-a-journey/" target="_blank" rel="noopener">Calcola un percorso (TfL) ↗</a><span>Il pianificatore ufficiale dei trasporti</span></li>
-          <li><a href="https://tfl.gov.uk/fares/how-to-pay-and-where-to-buy-tickets-and-oyster/pay-as-you-go/contactless-and-mobile-pay-as-you-go" target="_blank" rel="noopener">Pagare con il contactless ↗</a><span>Come funzionano tariffe e tetto giornaliero</span></li>
-        </ul>
-      </div>
-      <div class="linkgroup">
-        <h3>✈️ Da Stansted</h3>
-        <ul>
-          <li><a href="https://www.stanstedexpress.com/" target="_blank" rel="noopener">Stansted Express ↗</a><span>Treno per Liverpool Street</span></li>
-          <li><a href="https://www.greateranglia.co.uk/tickets-fares/discounts/groupsave" target="_blank" rel="noopener">Sconto GroupSave ↗</a><span>1/3 in meno per 3–9 adulti</span></li>
-          <li><a href="https://www.nationalexpress.com/en/destinations/london-stratford/stansted-to-london-stratford" target="_blank" rel="noopener">Pullman per Stratford ↗</a><span>National Express</span></li>
-          <li><a href="https://www.stanstedairport.com/getting-to-and-from/stansted-to-london/" target="_blank" rel="noopener">Tutte le opzioni dall'aeroporto ↗</a><span>Sito ufficiale di Stansted</span></li>
+          <li><a href="https://tfl.gov.uk/bus/route/241/" target="_blank" rel="noopener">Bus 241 ↗</a><span>Orari e fermate</span></li>
+          <li><a href="https://tfl.gov.uk/fares/how-to-pay-and-where-to-buy-tickets-and-oyster/pay-as-you-go/contactless-and-mobile-pay-as-you-go" target="_blank" rel="noopener">Pagare con il contactless ↗</a><span>Tariffe e tetto giornaliero</span></li>
         </ul>
       </div>
       <div class="linkgroup">
@@ -576,48 +529,9 @@ img { max-width: 100%; }
   </section>
 
   <footer>
-    <p>Prezzi per 5 adulti dal 12 al 16 novembre 2026 (4 notti), verificati il 6 ottobre 2026 sui siti indicati. I prezzi in sterline sono convertiti in euro al cambio di 1 € = 0,849 £. Travelodge, trasporti, colazioni ed ETA si pagano in sterline: con la carta potete pagare un po' di più. I prezzi dei trasporti sono indicativi.</p>
-    <p>Disponibilità e prezzi cambiano ogni giorno. Prima di prenotare controllate sempre il totale e la scadenza della cancellazione nella pagina di pagamento.</p>
+    <p>Tempi di percorrenza calcolati con TfL Journey Planner a ottobre 2026. Prezzi indicativi: quelli in sterline sono convertiti al cambio di 1 € = 0,849 £.</p>
+    <p>Il codice della cassetta delle chiavi e i dati della prenotazione non sono su questa pagina: li ha chi ha prenotato.</p>
   </footer>
 </main>
-
-<script>
-(() => {
-  const TIMES = [
-    { who: "Travelodge City Airport", tag: "2 camere", min: 12, line: "bus", label: "12 min" },
-    { who: "Travelodge Woolwich", tag: "2 camere", min: 14, line: "eliz", label: "14 min" },
-    { who: "Casa Plaistow", tag: "per 5", min: 22, line: "mixed", label: "~22 min" },
-    { who: "Budget-Friendly Stay", tag: "2 camere", min: 23, line: "bus", label: "23 min" },
-    { who: "Appartamento Poplar", tag: "per 5", min: 24, line: "dlr", label: "~24 min" },
-    { who: "Appartamento Stratford", tag: "per 5", min: 25, line: "bus", label: "25 min" }
-  ];
-
-  // ---- travel-time chart (static, drawn to a 0–40 min scale) ----
-  const bars = document.getElementById("bars");
-  const colorVar = { eliz: "var(--accent)", dlr: "var(--dlr)", bus: "var(--bus)", mixed: "var(--mixed)" };
-  TIMES.forEach(t => {
-    const row = document.createElement("div");
-    row.className = "bar-row";
-    const pct = Math.min(100, (t.min / 40) * 100);
-    row.innerHTML =
-      '<div class="who"></div>' +
-      '<div class="track" role="img"><div class="b"></div><span class="v"></span></div>';
-    const who = row.querySelector(".who");
-    who.textContent = t.who;
-    const small = document.createElement("small");
-    small.textContent = t.tag;
-    who.appendChild(small);
-    const track = row.querySelector(".track");
-    track.setAttribute("aria-label", t.who + ": " + t.label);
-    const b = row.querySelector(".b");
-    b.style.width = pct + "%";
-    b.style.setProperty("--c", colorVar[t.line]);
-    const v = row.querySelector(".v");
-    v.textContent = t.label;
-    v.style.left = "calc(" + pct + "% + 8px)";
-    bars.appendChild(row);
-  });
-})();
-</script>
 </body>
 </html>
